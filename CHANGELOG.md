@@ -6,6 +6,14 @@ All notable changes to this project are documented in this file. The format is b
 
 ## [Unreleased]
 
+### Changed
+
+- The Claude Code plugin starts the server with `uvx --from voice-coach-mcp[...]==0.1.1`, the
+  pinned launcher the Claude plugin directory asks for.
+- The plugin passes the pronunciation backend and the optional Azure key and region from its
+  `userConfig` (the key is stored as a secret) instead of reading them from the shell
+  environment, and installs the `azure` extra so that backend works from the plugin.
+
 ## [0.1.1] - 2026-10-23
 
 ### Changed

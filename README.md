@@ -212,9 +212,10 @@ occasionally "correct" a mispronounced word; pronunciation assessment is English
 
 Everything the plugin runs, writes and downloads:
 
-- **Runs**: `uv` starts the server from the plugin folder (`uv run --frozen`, pinned by
-  `uv.lock`); the server uses `espeak-ng` for expected phonemes and `ffmpeg` only to read
-  m4a/aac files.
+- **Runs**: the Claude Code plugin starts the published package pinned to an exact version
+  (`uvx --from voice-coach-mcp[...]==0.1.1`); the MCPB extension runs it from its folder with
+  `uv run --frozen`, pinned by `uv.lock`. The server uses `espeak-ng` for expected phonemes
+  and `ffmpeg` only to read m4a/aac files.
 - **Microphone**: only while `record_audio` runs, for the number of seconds Claude asks for.
 - **Writes**: recordings and `progress.md` in `~/VoiceCoach` (or `VOICE_COACH_DIR`), and an
   analysis detail file `<audio>.<tool>.json` next to each analyzed audio (or in
@@ -226,7 +227,8 @@ Everything the plugin runs, writes and downloads:
 - **Sends**: nothing by default. No telemetry, no accounts, no API keys. Only if you set
   `VOICE_COACH_PRONUNCIATION_BACKEND=azure` with your own `AZURE_SPEECH_KEY` and
   `AZURE_SPEECH_REGION` does `assess_pronunciation` send that audio and the expected text to
-  Azure Speech in your region.
+  Azure Speech in your region. In the Claude Code plugin these three values come from the
+  plugin's settings (the key is stored as a secret), not from your shell environment.
 
 ## Configuration
 
