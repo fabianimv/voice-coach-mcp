@@ -21,18 +21,38 @@
   ],
   "mcpServers": {
     "voice-coach": {
-      "command": "uv",
+      "command": "uvx",
       "args": [
-        "run",
-        "--frozen",
-        "--directory",
-        "${CLAUDE_PLUGIN_ROOT}",
-        "--extra",
-        "speech",
-        "--extra",
-        "pronunciation",
+        "--from",
+        "voice-coach-mcp[speech,pronunciation,azure]==0.1.1",
         "voice-coach-mcp"
-      ]
+      ],
+      "env": {
+        "VOICE_COACH_PRONUNCIATION_BACKEND": "${user_config.pronunciation_backend}",
+        "AZURE_SPEECH_KEY": "${user_config.azure_speech_key}",
+        "AZURE_SPEECH_REGION": "${user_config.azure_speech_region}"
+      }
+    }
+  },
+  "userConfig": {
+    "pronunciation_backend": {
+      "type": "string",
+      "title": "Pronunciation backend",
+      "description": "local (wav2vec2 on your computer, default) or azure (sends the audio to Azure Speech; needs the key and region below).",
+      "default": "local"
+    },
+    "azure_speech_key": {
+      "type": "string",
+      "title": "Azure Speech key (optional)",
+      "description": "Only for the azure backend. Leave empty to keep everything local.",
+      "sensitive": true,
+      "default": ""
+    },
+    "azure_speech_region": {
+      "type": "string",
+      "title": "Azure Speech region (optional)",
+      "description": "Only for the azure backend, e.g. westeurope.",
+      "default": ""
     }
   }
 }
