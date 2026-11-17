@@ -1,0 +1,22 @@
+{
+  "name": "voice-coach",
+  "displayName": "Voice Coach",
+  "version": "0.1.1",
+  "description": "Voice-coaching skill for singing, English pronunciation and public speaking. Needs the voice-coach MCP server, installed separately.",
+  "author": {
+    "name": "FabianIMV",
+    "url": "https://github.com/FabianIMV"
+  },
+  "homepage": "https://github.com/FabianIMV/voice-coach-mcp",
+  "repository": "https://github.com/FabianIMV/voice-coach-mcp",
+  "license": "MIT",
+  "keywords": [
+    "voice",
+    "singing",
+    "pitch",
+    "pronunciation",
+    "public-speaking",
+    "coach",
+    "mcp"
+  ]
+}

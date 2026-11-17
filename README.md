@@ -56,6 +56,10 @@ claude plugin install voice-coach@voice-coach
 
 Or, inside a session: `/plugin install voice-coach --marketplace FabianIMV/voice-coach-mcp`.
 
+The Claude plugin directory lists a skill-only version ([`directory-plugin/`](directory-plugin/)):
+the directory accepts local MCP servers only from Verified organizations. If you installed that
+one, add the server with the manual command below.
+
 The first start installs the Python dependencies with uv, which can take a minute or two (the
 models download later, on first use). If `/mcp` shows `voice-coach` as failed right after
 installing, reconnect it from `/mcp` once the installation finishes.
@@ -212,9 +216,8 @@ occasionally "correct" a mispronounced word; pronunciation assessment is English
 
 Everything the plugin runs, writes and downloads:
 
-- **Runs**: the Claude Code plugin starts the published package pinned to an exact version
-  (`uvx --from voice-coach-mcp[...]==0.1.1`); the MCPB extension runs it from its folder with
-  `uv run --frozen`, pinned by `uv.lock`. The server uses `espeak-ng` for expected phonemes
+- **Runs**: `uv` starts the server from the plugin folder (`uv run --locked` in the Claude Code
+  plugin, `uv run --frozen` in the MCPB extension), pinned by `uv.lock`. The server uses `espeak-ng` for expected phonemes
   and `ffmpeg` only to read m4a/aac files.
 - **Microphone**: only while `record_audio` runs, for the number of seconds Claude asks for.
 - **Writes**: recordings and `progress.md` in `~/VoiceCoach` (or `VOICE_COACH_DIR`), and an

@@ -21,10 +21,18 @@
   ],
   "mcpServers": {
     "voice-coach": {
-      "command": "uvx",
+      "command": "uv",
       "args": [
-        "--from",
-        "voice-coach-mcp[speech,pronunciation,azure]==0.1.1",
+        "run",
+        "--locked",
+        "--directory",
+        "${CLAUDE_PLUGIN_ROOT}",
+        "--extra",
+        "speech",
+        "--extra",
+        "pronunciation",
+        "--extra",
+        "azure",
         "voice-coach-mcp"
       ],
       "env": {
