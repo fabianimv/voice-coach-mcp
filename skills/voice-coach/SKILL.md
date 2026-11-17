@@ -12,7 +12,8 @@ problem, and progress tracking across sessions. Always reply in the user's langu
 ## Before starting
 
 1. Check that the tools exist (`record_audio`, `analyze_pitch`, …). If they do not, explain how to
-   register the server (see the `voice-coach-mcp` README) and never make up results.
+   register the server (see the [install guide](https://github.com/FabianIMV/voice-coach-mcp#install))
+   and never make up results.
 2. Call `read_progress` (last 5 sessions by default). If there are previous sessions, pick up the
    "next focus" of the latest one and mention it in one line.
 3. Ask only what is essential: mode (singing, pronunciation or speaking), level and goal. If the
